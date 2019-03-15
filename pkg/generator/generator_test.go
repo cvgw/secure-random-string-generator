@@ -6,38 +6,38 @@ import (
 	"github.com/cvgw/secure-random-string-generator/pkg/generator"
 )
 
-func BenchmarkGenerateSingleByteBuffer20Chars(b *testing.B) {
+func BenchmarkGenerateSingleByteBufferCharLength20(b *testing.B) {
 	for n := 0; n < b.N; n++ {
 		generator.GenerateSingle(20)
 	}
 }
 
-func BenchmarkGenerate8ByteBuffer20Chars(b *testing.B) {
+func BenchmarkGenerate8ByteBufferCharLength20(b *testing.B) {
 	for n := 0; n < b.N; n++ {
 		generator.GenerateVariable(20, 8)
 	}
 }
 
-func BenchmarkGenerate16ByteBuffer20Chars(b *testing.B) {
+func BenchmarkGenerate16ByteBufferCharLength20(b *testing.B) {
 	for n := 0; n < b.N; n++ {
 		generator.GenerateVariable(20, 16)
 	}
 }
 
-func BenchmarkGenerate32ByteBuffer20Chars(b *testing.B) {
+func BenchmarkGenerate32ByteBufferCharLength20(b *testing.B) {
 	for n := 0; n < b.N; n++ {
 		generator.GenerateVariable(20, 32)
 	}
 }
 
-func BenchmarkGenerate64ByteBuffer20Chars(b *testing.B) {
+func BenchmarkGenerate64ByteBufferCharLength20(b *testing.B) {
 	for n := 0; n < b.N; n++ {
 		generator.GenerateVariable(20, 64)
 	}
 }
 
-func BenchmarkGenerateFromInt20Chars(b *testing.B) {
+func BenchmarkGenerateFromUInt64CharLength20(b *testing.B) {
 	for n := 0; n < b.N; n++ {
-		generator.GenerateVariable(20, 64)
+		generator.GenerateFromUInt64(20)
 	}
 }

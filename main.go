@@ -9,5 +9,5 @@ import (
 func main() {
 	size := 20
 	fmt.Println(generator.GenerateVariable(size, 8))
-	fmt.Println(generator.GenerateFromInt(size))
+	fmt.Println(generator.GenerateFromUInt64(size))
 }

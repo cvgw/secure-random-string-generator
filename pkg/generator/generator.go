@@ -12,7 +12,7 @@ const (
 	mask = (1 << 6) - 1
 )
 
-func GenerateFromInt(size int) string {
+func GenerateFromUInt64(size int) string {
 	var v uint64
 	err := binary.Read(rand.Reader, binary.BigEndian, &v)
 	if err != nil {
