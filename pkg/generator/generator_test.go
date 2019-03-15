@@ -41,3 +41,9 @@ func BenchmarkGenerateFromUInt64CharLength20(b *testing.B) {
 		generator.GenerateFromUInt64(20)
 	}
 }
+
+func BenchmarkGenerateFromUInt32CharLength20(b *testing.B) {
+	for n := 0; n < b.N; n++ {
+		generator.GenerateFromUInt32(20)
+	}
+}

@@ -12,6 +12,36 @@ const (
 	mask = (1 << 6) - 1
 )
 
+func GenerateFromUInt32(size int) string {
+	var v uint32
+	err := binary.Read(rand.Reader, binary.BigEndian, &v)
+	if err != nil {
+		log.Fatal(err)
+	}
+	cache := v
+	typeSize := 32
+	limit := int(typeSize) / 6
+	out := make([]byte, size)
+	j := 0
+	for i := 0; i < size; i++ {
+		if j > limit-1 {
+			err := binary.Read(rand.Reader, binary.BigEndian, &v)
+			if err != nil {
+				log.Fatal(err)
+			}
+			cache = v
+			j = 0
+		}
+		index := cache & mask
+		char := characters[index]
+		out[i] = char
+		cache >>= 6
+		j++
+	}
+
+	return string(out)
+}
+
 func GenerateFromUInt64(size int) string {
 	var v uint64
 	err := binary.Read(rand.Reader, binary.BigEndian, &v)
